@@ -21,15 +21,15 @@ export const fetchTodos = () => {
   }
 }
 
-export const addTodo = todo => {
-  let newTodo = {
-    title: todo,
-    completed: false,
-  }
-  return dispatch => {
-    dispatch({
-      type: "ADD_TODO",
-      payload: newTodo
-    })
-  }
-}
+// export const addTodo = todo => {
+//   let newTodo = {
+//     title: todo,
+//     completed: false,
+//   }
+//   return dispatch => {
+//     dispatch({
+//       type: "ADD_TODO",
+//       payload: newTodo
+//     })
+//   }
+// }
