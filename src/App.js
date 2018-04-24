@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import RegisterForm from './components/RegisterForm'
 import LoginForm from './components/LoginForm'
+import Profile from './components/Profile'
 
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
@@ -25,7 +26,7 @@ class App extends Component {
                     <Link to="/login" class="nav-link">Login</Link>
                   </li>
                   <li class="nav-item">
-                    <Link to="profile/:id" class="nav-link">Profile</Link>
+                    <Link to="/profile" class="nav-link">Profile</Link>
                   </li>
                 </ul>
               </div>
@@ -33,6 +34,7 @@ class App extends Component {
               <div>
                 <Route exact path="/register" component={RegisterForm}/>
                 <Route exact path="/login" component={LoginForm}/>
+                <Route exact path="/profile" component={Profile}/>
               </div>
         </div>
       </Router>

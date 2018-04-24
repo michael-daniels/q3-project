@@ -14,3 +14,33 @@ h3 {
 .form-control {
   text-align: center;
 }
+.profile-photo {
+  max-width: 400px;
+  border-radius: 5px;
+}
+
+.profile-photo-div {
+  margin-top: 25px;
+  text-align: right;
+}
+.pet-info-div {
+  margin-top:25px;
+  text-align: left;
+}
+.commenter-name {
+  font-weight: bold;
+  color:silver;
+  text-align: left;
+  font-size: 18px;
+}
+.comment-content {
+  color:gray;
+  text-align: left;
+}
+.single-comment {
+padding: 15px 15px;
+max-width: 500px;
+margin:0 auto;
+border: 2px #f2f2f2 solid;
+border-radius: 5px;
+}
