@@ -1,69 +1,95 @@
 import React, { Component } from 'react';
+import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+import Comments from './Comments'
+import { fetchUser } from '../redux/actions'
 
 class Profile extends Component {
 
-  state = {}
+  state = {user_info_fetched:false}
 
   render() {
-    console.log(window.location.href)
     let currentURL = window.location.href
     let currentUser = currentURL.substr(currentURL.lastIndexOf("/")+1)
-    console.log(currentUser)
 
-    if (!this.state.id) {
+    if(this.state.user_info_fetched === false) {
+      this.props.fetchUserFunc(currentUser)
+      this.setState({user_info_fetched:true})
+    }
 
-    fetch(`http://localhost:8000/user/${currentUser}`)
-      .then((user) => {
-        return user.json()
-      })
-      .then((user) => {
-        this.setState(user)
-      })
+    console.log("FETCHED USER", this.props.fetched_user[0])
 
-      }
-
-    return (
-      <div>
-        <div className="pet-name"><h1>{this.state.petname}</h1></div>
-          <div className="profile-photo-div">
-            <img className="profile-photo" src="https://boygeniusreport.files.wordpress.com/2017/11/pupper.png?w=700" />
-          </div>
-          <div className="pet-info-div">
-            <span className="pet-info">{this.state.petbreed} - </span>
-            <span className="pet-info">{this.state.petgender} - </span>
-            <span className="pet-info">Lost on {this.state.datelost} - </span>
-            <span className="pet-info">Last seen near {this.state.crossroadslost} </span>
-          </div>
-
-
-
+    if (this.props.fetched_user[0]) {
+      return (
         <div>
-          <hr />
-          <div className="row">
-            <div className="col-md-6">
-              <h3>Location</h3>
-              <iframe width="500" height="350" frameborder="0" src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyComtCTHcgK-Hn-t4e_idADPWJgWpI4G4E&q=${this.state.crossroadslost}`} allowfullscreen></iframe>
+          <div className="pet-name"><h1>{this.props.fetched_user[0].petname}</h1></div>
+            <div className="profile-photo-div">
+              <img className="profile-photo" src="https://boygeniusreport.files.wordpress.com/2017/11/pupper.png?w=700" />
             </div>
-            <div className="col-md-6">
-              <h3>Comments</h3>
+            <div className="pet-info-div">
+              <span className="pet-info">{this.props.fetched_user[0].petbreed} - </span>
+              <span className="pet-info">{this.props.fetched_user[0].petgender} - </span>
+              <span className="pet-info">Lost on {this.props.fetched_user[0].datelost} - </span>
+              <span className="pet-info">Last seen near {this.props.fetched_user[0].crossroadslost} </span>
+            </div>
 
-              <div className="single-comment">
-                <div className="commenter-name">
-                  Username
-                </div>
-                <div className="comment-content">
-                  "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.
-                </div>
+          <div>
+            <hr />
+            <div className="row">
+              <div className="col-md-6">
+                <h3>Location</h3>
+                <iframe width="500" height="350" frameBorder="0" src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyComtCTHcgK-Hn-t4e_idADPWJgWpI4G4E&q=${this.props.fetched_user[0].crossroadslost}`} allowFullScreen></iframe>
+              </div>
+              <div className="col-md-6">
+                <Comments />
               </div>
             </div>
-          </div>
 
+          </div>
         </div>
-      </div>
-    );
+      );
+    }
+    else {
+      return (
+        <div>
+          <div className="pet-name"><h1>Loading...</h1></div>
+            <div className="profile-photo-div">
+              Loading...
+            </div>
+            <div className="pet-info-div">
+              Loading...
+            </div>
+
+
+
+          <div>
+            <hr />
+            <div className="row">
+              <div className="col-md-6">
+                Loading...
+              </div>
+              <div className="col-md-6">
+                Loading...
+              </div>
+            </div>
+
+          </div>
+        </div>
+      );
+    }
+
   }
 
 }
 
-export default Profile;
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({
+    fetchUserFunc: fetchUser
+    }, dispatch)
+}
+const mapStateToProps = state => ({
+  fetched_user: state.user
+})
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Profile)
