@@ -5,31 +5,59 @@
 
 //Below, we export the action creators to be called on events.
 
-export const fetchTodos = () => {
+export const fetchUser = (currentUser) => {
   return dispatch => {
-    fetch(`https://jsonplaceholder.typicode.com/todos`)
-      .then(response => response.json())
-      .then(todos => dispatch({
-        type: "FETCH_TODOS_SUCCESS",
-        payload: todos
-      }))
-      .catch(err => dispatch({
-        type: "FETCH_TODOS_FAILED",
-        payload: err
-      }))
+    fetch(`http://localhost:8000/user/${currentUser}`)
+      .then((user) => {
+        return user.json()
+      })
+      .then((user) => {
+        return dispatch({
+        type: "FETCH_USER_SUCCESS",
+        payload: user
+        })
+      })
+      .catch((err) => {
+        dispatch({
+          type: "FETCH_USER_FAILED",
+          payload: err
+        })
+      })
 
   }
 }
 
-// export const addTodo = todo => {
-//   let newTodo = {
-//     title: todo,
-//     completed: false,
-//   }
-//   return dispatch => {
-//     dispatch({
-//       type: "ADD_TODO",
-//       payload: newTodo
-//     })
-//   }
-// }
+export const fetchComments = () => {
+  return dispatch => {
+    fetch(`https://jsonplaceholder.typicode.com/todos`)
+      .then((response) => {
+        return response.json()
+      })
+      .then((comments) => {
+        return dispatch({
+        type: "FETCH_COMMENTS_SUCCESS",
+        payload: comments
+        })
+      })
+      .catch((err) => {
+        dispatch({
+          type: "FETCH_COMMENTS_FAILED",
+          payload: err
+        })
+      })
+
+  }
+}
+
+export const addComment = (username, content) => {
+  let newComment = {
+    username: username,
+    content: content,
+  }
+  return dispatch => {
+    dispatch({
+      type: "ADD_COMMENT",
+      payload: newComment
+    })
+  }
+}
