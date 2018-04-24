@@ -29,6 +29,15 @@ h3 {
 .form-control {
   text-align: center;
 }
+.btn-primary {
+  background-color: #4CAF50;
+}
+.btn-primary:hover {
+  background-color: #388E3C;
+}
+.btn-primary:focus {
+  background-color: #388E3C;
+}
 .pet-name {
   margin:15px 0;
   color:#4CAF50;
@@ -64,7 +73,6 @@ h3 {
 padding: 15px 15px;
 max-width: 600px;
 margin:10px auto;
-border: 2px #f2f2f2 solid;
 border-radius: 5px;
 }
 .fb-share-button {
