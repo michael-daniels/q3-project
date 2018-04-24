@@ -23,8 +23,6 @@ class Profile extends Component {
 
       }
 
-      // <img className="fb-share-button" src="https://www.blessingbasket.org/images/facebook.png" />
-
     return (
       <div>
         <div className="pet-name"><h1>{this.state.petname}</h1></div>
@@ -42,25 +40,25 @@ class Profile extends Component {
 
         <div>
           <hr />
-          <h3>Comments</h3>
-
-          <div className="single-comment">
-            <div className="commenter-name">
-              Username
+          <div className="row">
+            <div className="col-md-6">
+              <h3>Location</h3>
+              <iframe width="500" height="350" frameborder="0" src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyComtCTHcgK-Hn-t4e_idADPWJgWpI4G4E&q=${this.state.crossroadslost}`} allowfullscreen></iframe>
             </div>
-            <div className="comment-content">
-              "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.
+            <div className="col-md-6">
+              <h3>Comments</h3>
+
+              <div className="single-comment">
+                <div className="commenter-name">
+                  Username
+                </div>
+                <div className="comment-content">
+                  "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.
+                </div>
+              </div>
             </div>
           </div>
 
-          <div className="single-comment">
-            <div className="commenter-name">
-              Username
-            </div>
-            <div className="comment-content">
-              "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.
-            </div>
-          </div>
         </div>
       </div>
     );

@@ -1,7 +1,9 @@
 import { combineReducers } from 'redux'
 
-import todosReducer from './todosReducer'
+import commentsReducer from './commentsReducer'
+import userReducer from './userReducer'
 
 export default combineReducers({
-  todos: todosReducer
+  user: userReducer,
+  comments: commentsReducer
 })

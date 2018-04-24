@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Comfortaa');
+
 h3 {
   color:#4CAF50;
   margin:15px 0;
@@ -16,6 +18,8 @@ h3 {
   color:white;
 }
 .navbar-brand {
+  font-size: 26px;
+  font-family: Comfortaa;
   color:white;
 }
 .form-group {
