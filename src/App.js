@@ -11,8 +11,8 @@ class App extends Component {
     return (
       <Router>
         <div className="wrapper">
-            <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-              <a class="navbar-brand" href="#">straytracker</a>
+            <nav class="navbar navbar-expand-lg custom-navbar">
+              <Link to="/" class="navbar-brand">straytracker</Link>
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
@@ -34,7 +34,7 @@ class App extends Component {
               <div>
                 <Route exact path="/register" component={RegisterForm}/>
                 <Route exact path="/login" component={LoginForm}/>
-                <Route exact path="/profile" component={Profile}/>
+                <Route exact path="/profile/:username" component={Profile}/>
               </div>
         </div>
       </Router>

@@ -1,11 +1,22 @@
 h3 {
-  color:lightgray;
+  color:#4CAF50;
   margin:15px 0;
 }
 .wrapper {
   text-align: center;
   margin: 0 auto;
   max-width: 90%;
+  background-color: #f2f2f2;
+}
+.custom-navbar {
+  background-color: #4CAF50;
+  padding:10px 7vw;
+}
+.nav-link {
+  color:white;
+}
+.navbar-brand {
+  color:white;
 }
 .form-group {
   margin: 0 auto;
@@ -14,18 +25,26 @@ h3 {
 .form-control {
   text-align: center;
 }
+.pet-name {
+  margin:15px 0;
+  color:#4CAF50;
+}
 .profile-photo {
-  max-width: 400px;
+  max-width: 600px;
   border-radius: 5px;
+  box-shadow: 1px 1px 50px silver
 }
 
 .profile-photo-div {
   margin-top: 25px;
-  text-align: right;
 }
 .pet-info-div {
-  margin-top:25px;
-  text-align: left;
+  margin: 25px auto;
+  max-width: 600px;
+}
+.pet-info {
+  font-size: 24px;
+  color:#4CAF50;
 }
 .commenter-name {
   font-weight: bold;
@@ -39,8 +58,11 @@ h3 {
 }
 .single-comment {
 padding: 15px 15px;
-max-width: 500px;
-margin:0 auto;
+max-width: 600px;
+margin:10px auto;
 border: 2px #f2f2f2 solid;
 border-radius: 5px;
+}
+.fb-share-button {
+  max-width: 600px;
 }
