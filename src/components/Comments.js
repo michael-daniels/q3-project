@@ -17,7 +17,7 @@ class Comments extends Component {
     }
 
     let singleComment = this.props.fetched_comments.map((item) => {
-      return <SingleComment key={item.id} singleComment={item}/>
+      return <SingleComment key={item.id} singleComment={item} />
     })
 
     if (this.props.fetched_user[0].id) {
@@ -25,7 +25,7 @@ class Comments extends Component {
         <div>
           <h3>Comments</h3>
           {singleComment}
-          <CommentForm />
+          <CommentForm userId={this.props.fetched_user[0].id}/>
         </div>
       );
     }
