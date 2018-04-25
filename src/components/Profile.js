@@ -24,7 +24,7 @@ class Profile extends Component {
         <div>
           <div className="pet-name"><h1>{this.props.fetched_user[0].petname}</h1></div>
             <div className="profile-photo-div">
-              <img className="profile-photo" src="https://boygeniusreport.files.wordpress.com/2017/11/pupper.png?w=700" />
+              <img className="profile-photo" src={this.props.fetched_user[0].avatarurl} />
             </div>
             <div className="pet-info-div">
               <span className="pet-info">{this.props.fetched_user[0].petbreed} - </span>

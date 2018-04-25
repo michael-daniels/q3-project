@@ -4,6 +4,7 @@ class RegisterForm extends Component {
   state = {
     userName:'',
     petName:'',
+    avatarUrl:'',
     petGender:'',
     petBreed:'',
     dateLost:'',
@@ -26,6 +27,7 @@ class RegisterForm extends Component {
         <form className="form-group" action="http://localhost:8000/register" method="post">
           <input className="form-control" name="username" type="text" value={this.state.userName} placeholder={usernameStatus} onChange={e => this.setState({ userName: e.target.value })} />
           <input className="form-control" name="petname" type="text" value={this.state.petName} placeholder="Pet's Name" onChange={e => this.setState({ petName: e.target.value })} />
+          <input className="form-control" name="avatarurl" type="text" value={this.state.avatarUrl} placeholder="Image URL" onChange={e => this.setState({ avatarUrl: e.target.value })} />
           <input className="form-control" name="petgender" type="text" value={this.state.petGender} placeholder="Pet's Gender" onChange={e => this.setState({ petGender: e.target.value })} />
           <input className="form-control" name="petbreed" type="text" value={this.state.petBreed} placeholder="Pet's Breed" onChange={e => this.setState({ petBreed: e.target.value })} />
           <input className="form-control" name="datelost" type="text" value={this.state.dateLost} placeholder="Date Lost" onChange={e => this.setState({ dateLost: e.target.value })} />

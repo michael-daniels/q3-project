@@ -3,41 +3,55 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import CommentForm from './CommentForm'
 import SingleComment from './SingleComment'
+import { fetchComments } from '../redux/actions'
 
 class Comments extends Component {
 
-  state = [
-    {
-      id:1,
-      username:'Michael',
-      content:'"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-    },
-    {
-      id:2,
-      username:'Jim',
-      content:'"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-    },
-    {
-      id:3,
-      username:'Alex',
-      content:'"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-    },
-  ]
+  state = {comments_fetched: false}
 
   render() {
-    let singleComment = this.state.map((item) => {
+    console.log("FETCHED USER ON COMMENTS", this.props.fetched_user)
+    if (this.state.comments_fetched === false) {
+      this.props.fetchCommentsFunc(this.props.fetched_user[0].id)
+      this.setState({comments_fetched:true})
+    }
+
+    let singleComment = this.props.fetched_comments.map((item) => {
       return <SingleComment key={item.id} singleComment={item}/>
     })
 
-    return (
-      <div>
-        <h3>Comments</h3>
-        {singleComment}
-        <CommentForm />
-      </div>
-    );
+    if (this.props.fetched_user[0].id) {
+      return (
+        <div>
+          <h3>Comments</h3>
+          {singleComment}
+          <CommentForm />
+        </div>
+      );
+    }
+    else {
+      return (
+        <div>
+          <h3>Comments</h3>
+          Loading...
+          <CommentForm />
+        </div>
+      );
+    }
+
   }
 
 }
 
-export default Comments;
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({
+    fetchCommentsFunc: fetchComments
+    }, dispatch)
+}
+const mapStateToProps = state => ({
+  fetched_user: state.user,
+  fetched_comments: state.comments
+})
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Comments)

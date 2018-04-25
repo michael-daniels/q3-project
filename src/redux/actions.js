@@ -27,9 +27,9 @@ export const fetchUser = (currentUser) => {
   }
 }
 
-export const fetchComments = () => {
+export const fetchComments = (currentUser) => {
   return dispatch => {
-    fetch(`https://jsonplaceholder.typicode.com/todos`)
+    fetch(`http://localhost:8000/comments/${currentUser}`)
       .then((response) => {
         return response.json()
       })
