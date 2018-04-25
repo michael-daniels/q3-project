@@ -1,8 +1,3 @@
-//Optionally, we can export these type labels to be used elsewhere
-// export const FETCH_TODOS_SUCCESS = "FETCH_TODOS_SUCCESS"
-// export const FETCH_TODOS_FAILED = "FETCH_TODOS_FAILED"
-// export const ADD_TODO = "ADD_TODO"
-
 //Below, we export the action creators to be called on events.
 
 export const fetchUser = (currentUser) => {
@@ -60,4 +55,35 @@ export const addComment = (username, content) => {
       payload: newComment
     })
   }
+}
+
+export const deleteComment = (id) => {
+  fetch(`http://localhost:8000/comment/delete/${id}`, {
+    method:'post',
+    headers:{
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body:id
+  })
+  return dispatch => {
+    dispatch({
+      type: "DELETE_COMMENT",
+      payload: id
+    })
+  }
+}
+
+export const getPermissions = (currentUser) => {
+  fetch(`http://localhost:8000/permissions/${currentUser}`)
+    .then((response) => {
+      return response.json()
+    })
+    .then((permissions) => {
+      console.log("The permissions", permissions)
+      return permissions
+    })
+    .catch((err) => {
+      return err
+    })
 }

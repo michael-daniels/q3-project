@@ -16,6 +16,8 @@ class Comments extends Component {
       this.setState({comments_fetched:true})
     }
 
+    console.log("FETCHED COMMENTS", this.props.fetched_comments)
+
     let singleComment = this.props.fetched_comments.map((item) => {
       return <SingleComment key={item.id} singleComment={item} />
     })

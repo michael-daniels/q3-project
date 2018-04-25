@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import LandingPage from './components/LandingPage'
 import RegisterForm from './components/RegisterForm'
 import LoginForm from './components/LoginForm'
 import Profile from './components/Profile'
@@ -32,6 +33,7 @@ class App extends Component {
               </div>
             </nav>
               <div>
+                <Route exact path="/" component={LandingPage}/>
                 <Route exact path="/register" component={RegisterForm}/>
                 <Route exact path="/login" component={LoginForm}/>
                 <Route exact path="/profile/:username" component={Profile}/>

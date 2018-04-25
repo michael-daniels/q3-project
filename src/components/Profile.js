@@ -3,6 +3,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import Comments from './Comments'
 import { fetchUser } from '../redux/actions'
+import { getPermissions } from '../redux/actions'
 
 class Profile extends Component {
 
