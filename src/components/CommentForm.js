@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import { addComment } from '../redux/actions'
 
 class CommentForm extends Component {
 
@@ -19,6 +22,9 @@ class CommentForm extends Component {
         method:'post',
         body:JSON.stringify(this.state)
       })
+
+      console.log("SUBMIT FUNCTION PROPS", this.props.addCommentFunc)
+      this.props.addCommentFunc(this.state.username, this.state.content)
     }
 
     return (
@@ -34,4 +40,10 @@ class CommentForm extends Component {
 
 }
 
-export default CommentForm;
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({
+    addCommentFunc: addComment
+    }, dispatch)
+}
+
+export default connect(null, mapDispatchToProps)(CommentForm)

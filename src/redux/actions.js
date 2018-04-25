@@ -49,7 +49,7 @@ export const fetchComments = (currentUser) => {
   }
 }
 
-export const addComment = (user_id, username, content) => {
+export const addComment = (username, content) => {
   let newComment = {
     username: username,
     content: content,
