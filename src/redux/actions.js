@@ -22,6 +22,28 @@ export const fetchUser = (currentUser) => {
   }
 }
 
+export const fetchAllUsers = () => {
+  return dispatch => {
+    fetch(`http://localhost:8000/database`)
+      .then((response) => {
+        return response.json()
+      })
+      .then((users) => {
+        return dispatch({
+        type: "FETCH_ALL_USERS_SUCCESS",
+        payload: users
+        })
+      })
+      .catch((err) => {
+        dispatch({
+          type: "FETCH_ALL_USERS_FAILED",
+          payload: err
+        })
+      })
+
+  }
+}
+
 export const fetchComments = (currentUser) => {
   return dispatch => {
     fetch(`http://localhost:8000/comments/${currentUser}`)

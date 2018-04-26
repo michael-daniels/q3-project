@@ -10,6 +10,7 @@ h3 {
   margin: 0 auto;
   max-width: 90%;
   background-color: #f2f2f2;
+  min-height: 100vh
 }
 .custom-navbar {
   background-color: #4CAF50;
@@ -39,6 +40,9 @@ h3 {
 .btn-primary:focus {
   background-color: #388E3C;
 }
+.database-results-list {
+  margin: 25px 25px
+}
 .pet-name {
   margin:15px 0;
   color:#4CAF50;
@@ -48,7 +52,6 @@ h3 {
   border-radius: 5px;
   box-shadow: 1px 1px 50px silver
 }
-
 .profile-photo-div {
   margin-top: 25px;
 }
@@ -78,4 +81,7 @@ border-radius: 5px;
 }
 .fb-share-button {
   max-width: 600px;
+}
+.database-thumbnail {
+  max-width: 60%;
 }
