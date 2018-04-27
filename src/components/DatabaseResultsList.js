@@ -49,7 +49,6 @@ class DatabaseResultsList extends Component {
 
     const showAllPets = () => {
       this.setState({filter_status: 'all'})
-      //this.state.filter_status = 'all'
       console.log("STATE AFTER FILTER STATUS ALL", this.state)
     }
 

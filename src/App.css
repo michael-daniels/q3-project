@@ -13,6 +13,33 @@ h3 {
   min-height: 100vh;
   padding-bottom: 50px;
 }
+.wrapper-landingpage {
+  text-align: center;
+  margin: 0 auto;
+  max-width: 100%;
+  background-color: #f2f2f2;
+  min-height: 100vh;
+  padding-bottom: 50px;
+}
+.banner-headline {
+  color:white;
+  text-shadow: 1px 1px 1px black;
+  font-size:60px;
+}
+.banner-subheadline {
+  color:white;
+  text-shadow: 1px 1px 1px black;
+  font-size:30px;
+  margin-top:-10px;
+  margin-bottom:20px;
+}
+.banner-button {
+  height:60px;
+  width:200px;
+  margin:10px 10px;
+  font-size: 24px;
+  border:none;
+}
 .custom-navbar {
   background-color: #4CAF50;
   padding:10px 7vw;
@@ -24,6 +51,15 @@ h3 {
   font-size: 34px;
   font-family: Comfortaa;
   color:white;
+}
+.banner {
+  padding:15vh;
+  background-image: url('https://preview.ibb.co/iusKDc/banner.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+  min-height: 45vh;
 }
 .form-group-login-register {
   margin: 0 auto;
@@ -90,22 +126,24 @@ border-radius: 5px;
 }
 .database-thumbnail {
   border-radius: 5px;
-  max-width: 100%;
+  max-width: 60%;
 }
-.db-view-petname-div {
+.db-view-text-div {
+  padding:4vh;
   font-size: 24px;
 }
-.db-view-datelost-div {
-  font-size: 24px;
-}
-.db-view-crossroadslost-div {
-  font-size: 24px;
-}
-.db-view-text {
-  font-size: 22px;
+.db-view-text-main {
+  font-family:Comfortaa;
+  font-size: 38px;
   color:#4CAF50;
 }
+.db-view-text {
+  font-family:;
+  font-size: 24px;
+  color:gray;
+}
 .filter-button {
+  background-color:#17d668;
   width:95%;
   margin:5px 0;
   border:none;
