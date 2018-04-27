@@ -23,6 +23,11 @@ class CommentForm extends Component {
         body:JSON.stringify(this.state)
       })
 
+      this.setState({
+        username:'',
+        content:'',
+      })
+
       console.log("SUBMIT FUNCTION PROPS", this.props.addCommentFunc)
       this.props.addCommentFunc(this.state.username, this.state.content)
     }

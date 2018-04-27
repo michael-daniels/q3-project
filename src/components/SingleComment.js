@@ -10,13 +10,10 @@ const SingleComment = (props) => {
     <div>
       <div className="single-comment">
         <div className="commenter-name">
-          {props.singleComment.username}
+          {props.singleComment.username} <a className="comment-x-button"><span onClick={() => { return props.deleteCommentFunc(props.singleComment.id) }}>x</span></a>
         </div>
         <div className="comment-content">
           {props.singleComment.content}
-        </div>
-        <div className="delete-comment">
-          <button className="btn btn-primary" onClick={() => { return props.deleteCommentFunc(props.singleComment.id) }}>delete</button>
         </div>
       </div>
       <hr />
