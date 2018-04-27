@@ -29,7 +29,7 @@ class CommentForm extends Component {
 
     return (
       <div>
-        <form className="form-group" onSubmit={submitHandler}>
+        <form className="form-group form-group-comments" onSubmit={submitHandler}>
           <input name="username" className="form-control" type="text" value={this.state.username} onChange={(event) => {return this.setState({username:event.target.value})}} placeholder="Username"/>
           <textarea name="content" className="form-control" type="text" value={this.state.content} onChange={(event) => {return this.setState({content:event.target.value})}} placeholder="Comment"/>
           <button className="form-control btn btn-primary" type="submit">Submit Comment</button>

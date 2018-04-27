@@ -96,6 +96,22 @@ export const deleteComment = (id) => {
   }
 }
 
+export const filterDatabaseFound = () => {
+  return dispatch => {
+    dispatch({
+      type: "SHOW_FOUND",
+    })
+  }
+}
+
+export const filterDatabaseLost = () => {
+  return dispatch => {
+    dispatch({
+      type: "SHOW_LOST",
+    })
+  }
+}
+
 export const getPermissions = (currentUser) => {
   fetch(`http://localhost:8000/permissions/${currentUser}`)
     .then((response) => {

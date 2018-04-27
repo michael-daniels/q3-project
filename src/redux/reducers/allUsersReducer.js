@@ -6,6 +6,15 @@ export default (state = initialState, action) => {
       return action.payload
     case "FETCH_ALL_USERS_FAILED":
       return action.payload
+    case "SHOW_FOUND":
+      console.log("HEARD IN REDUCER SHOW FOUND", state)
+      return [...state.filter((item) => {
+        return item.lostorfound == 'Found'
+      })]
+    case "SHOW_LOST":
+      return [...state.filter((item) => {
+        return item.lostorfound == 'Lost'
+      })]
     default:
       return state
   }

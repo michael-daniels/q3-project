@@ -10,8 +10,6 @@ class DatabaseView extends Component {
   render() {
       return (
         <div>
-          <h3>All Missing Pets</h3>
-          <hr />
           <div className="database-results-list">
             <DatabaseResultsList />
           </div>

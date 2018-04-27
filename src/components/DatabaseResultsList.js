@@ -3,10 +3,15 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import SingleDatabaseResult from './SingleDatabaseResult'
 import { fetchAllUsers } from '../redux/actions'
+import { filterDatabaseFound } from '../redux/actions'
+import { filterDatabaseLost } from '../redux/actions'
 
 class DatabaseResultsList extends Component {
 
-  state = {all_users_fetched: false}
+  state = {
+    all_users_fetched: false,
+    filter_status:'all'
+  }
 
   render() {
 
@@ -17,14 +22,58 @@ class DatabaseResultsList extends Component {
 
     console.log("ALL USERS ARRAY", this.props.allUsersArray[0])
 
-    let singleDatabaseResult = this.props.allUsersArray.map((item) => {
-      console.log("MAP ITEM", item)
-      return <SingleDatabaseResult key={item.id} singleUser={item} />
-    })
+    let singleDatabaseResult;
+
+    if (this.state.filter_status === 'lost') {
+      singleDatabaseResult = this.props.allUsersArray.map((item) => {
+        console.log("MAP ITEM", item)
+        if (item.lostorfound === 'Lost') {
+          return <SingleDatabaseResult key={item.id} singleUser={item} />
+        }
+      })
+    }
+    else if (this.state.filter_status == 'found') {
+      singleDatabaseResult = this.props.allUsersArray.map((item) => {
+        console.log("MAP ITEM", item)
+        if (item.lostorfound === 'Found') {
+          return <SingleDatabaseResult key={item.id} singleUser={item} />
+        }
+      })
+    }
+    else if (this.state.filter_status == 'all') {
+      singleDatabaseResult = this.props.allUsersArray.map((item) => {
+        console.log("MAP ITEM", item)
+        return <SingleDatabaseResult key={item.id} singleUser={item} />
+      })
+    }
+
+    const showAllPets = () => {
+      console.log("STATE AFTER FILTER STATUS ALL", this.state)
+    }
+
+    const showLostPets = () => {
+      alert('show only lost pets')
+    }
+
+    const showFoundPets = () => {
+      alert('show only found pets')
+    }
 
     if (this.props.allUsersArray[0]) {
       return (
         <div>
+          <div className="row">
+            <div className="col-md-4">
+              <button className="btn btn-primary filter-button" onClick={() => {return showAllPets()}}>Show All Pets</button>
+            </div>
+            <div className="col-md-4">
+              <button className="btn btn-primary filter-button" onClick={() => {return showFoundPets()}}>Show Found Pets</button>
+            </div>
+            <div className="col-md-4">
+              <button className="btn btn-primary filter-button" onClick={() => {return showLostPets()}}>Show Lost Pets</button>
+            </div>
+          </div>
+          <hr />
           {singleDatabaseResult}
         </div>
       );

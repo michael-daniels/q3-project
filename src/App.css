@@ -10,7 +10,8 @@ h3 {
   margin: 0 auto;
   max-width: 90%;
   background-color: #f2f2f2;
-  min-height: 100vh
+  min-height: 100vh;
+  padding-bottom: 50px;
 }
 .custom-navbar {
   background-color: #4CAF50;
@@ -20,16 +21,21 @@ h3 {
   color:white;
 }
 .navbar-brand {
-  font-size: 26px;
+  font-size: 34px;
   font-family: Comfortaa;
   color:white;
 }
-.form-group {
+.form-group-login-register {
   margin: 0 auto;
-  max-width: 70%
+  max-width: 500px
+}
+.form-group-comments {
+  margin: 0 auto;
+  max-width: 90%
 }
 .form-control {
   text-align: center;
+  margin:10px 0
 }
 .btn-primary {
   background-color: #4CAF50;
@@ -83,5 +89,24 @@ border-radius: 5px;
   max-width: 600px;
 }
 .database-thumbnail {
-  max-width: 60%;
+  border-radius: 5px;
+  max-width: 100%;
+}
+.db-view-petname-div {
+  font-size: 24px;
+}
+.db-view-datelost-div {
+  font-size: 24px;
+}
+.db-view-crossroadslost-div {
+  font-size: 24px;
+}
+.db-view-text {
+  font-size: 22px;
+  color:#4CAF50;
+}
+.filter-button {
+  width:95%;
+  margin:5px 0;
+  border:none;
 }

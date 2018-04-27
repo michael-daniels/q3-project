@@ -30,8 +30,8 @@ class Profile extends Component {
             <div className="pet-info-div">
               <span className="pet-info">{this.props.fetched_user[0].petbreed} - </span>
               <span className="pet-info">{this.props.fetched_user[0].petgender} - </span>
-              <span className="pet-info">Lost on {this.props.fetched_user[0].datelost} - </span>
-              <span className="pet-info">Last seen near {this.props.fetched_user[0].crossroadslost} </span>
+              <span className="pet-info">{this.props.fetched_user[0].lostorfound} on {this.props.fetched_user[0].datelostorfound} - </span>
+              <span className="pet-info">{this.props.fetched_user[0].crossroadslost} </span>
             </div>
 
           <div>
