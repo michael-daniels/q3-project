@@ -49,6 +49,13 @@ h3 {
 .nav-link {
   color:white;
 }
+.registerloginlinks {
+  color:white;
+  margin-left:45vw;
+}
+.registerlogin-a {
+  color:white;
+}
 .navbar-brand {
   font-size: 34px;
   font-family: Comfortaa;

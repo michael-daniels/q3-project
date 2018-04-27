@@ -18,8 +18,8 @@ class App extends Component {
               <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
               </button>
-
-              <div className="collapse navbar-collapse" id="navbarColor01">
+              <div className="registerloginlinks">
+                <Link className="registerlogin-a" to="/register">Register</Link> / <Link className="registerlogin-a" to="/login">Login</Link>
               </div>
             </nav>
               <div>
