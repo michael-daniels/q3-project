@@ -9,7 +9,7 @@ const LandingPage = () => {
           <div className="banner-headline">Lost and Found Pet Database</div>
           <div className="banner-subheadline">Search for your lost pet or post one you found</div>
 
-          <Link to="/register"><button className="btn btn-primary banner-button">Register</button></Link> <button className="btn btn-primary banner-button">View Database</button>
+          <Link to="/register"><button className="btn btn-primary banner-button">Register</button></Link> <Link to="/database"><button className="btn btn-primary banner-button">View Database</button></Link>
         </div>
       </div>
     </div>

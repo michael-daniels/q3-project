@@ -20,20 +20,6 @@ class App extends Component {
               </button>
 
               <div className="collapse navbar-collapse" id="navbarColor01">
-                <ul className="navbar-nav mr-auto">
-                  <li className="nav-item">
-                    <Link to="/register" className="nav-link">Register</Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link to="/login" className="nav-link">Login</Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link to="/profile" className="nav-link">Profile</Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link to="/database" className="nav-link">Database</Link>
-                  </li>
-                </ul>
               </div>
             </nav>
               <div>
