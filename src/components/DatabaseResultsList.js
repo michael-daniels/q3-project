@@ -75,7 +75,10 @@ class DatabaseResultsList extends Component {
             </div>
           </div>
           <hr />
-          {singleDatabaseResult}
+          <div className="row">
+            {singleDatabaseResult}
+          </div>
+
         </div>
       );
     }

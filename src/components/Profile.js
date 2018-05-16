@@ -23,26 +23,34 @@ class Profile extends Component {
     if (this.props.fetched_user[0]) {
       return (
         <div>
-          <div className="pet-name"><h1>{this.props.fetched_user[0].petname}</h1></div>
-            <div className="profile-photo-div">
-              <img className="profile-photo" src={this.props.fetched_user[0].avatarurl} />
+          <div className="row">
+            <div className="col-md-6">
+
+              <div className="pet-name"><h1>{this.props.fetched_user[0].petname}</h1></div>
+              <div className="profile-photo-div">
+                <img className="profile-photo" src={this.props.fetched_user[0].avatarurl} />
+              </div>
+              <div className="pet-info-div">
+                <span className="pet-info">{this.props.fetched_user[0].petbreed} - </span>
+                <span className="pet-info">{this.props.fetched_user[0].petgender} - </span>
+                <span className="pet-info">{this.props.fetched_user[0].lostorfound} on {this.props.fetched_user[0].datelostorfound} - </span>
+                <span className="pet-info">{this.props.fetched_user[0].crossroadslost} </span>
+              </div>
+
             </div>
-            <div className="pet-info-div">
-              <span className="pet-info">{this.props.fetched_user[0].petbreed} - </span>
-              <span className="pet-info">{this.props.fetched_user[0].petgender} - </span>
-              <span className="pet-info">{this.props.fetched_user[0].lostorfound} on {this.props.fetched_user[0].datelostorfound} - </span>
-              <span className="pet-info">{this.props.fetched_user[0].crossroadslost} </span>
-            </div>
+
+              <div className="col-md-6">
+                <Comments />
+              </div>
+
+          </div>
 
           <div>
             <hr />
             <div className="row">
-              <div className="col-md-6">
+              <div className="col-md-12">
                 <h3>Location</h3>
-                <iframe width="500" height="350" frameBorder="0" src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyComtCTHcgK-Hn-t4e_idADPWJgWpI4G4E&q=${this.props.fetched_user[0].crossroadslost}`} allowFullScreen></iframe>
-              </div>
-              <div className="col-md-6">
-                <Comments />
+                <iframe width="100%" height="400" frameBorder="0" src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyComtCTHcgK-Hn-t4e_idADPWJgWpI4G4E&q=${this.props.fetched_user[0].crossroadslost}`} allowFullScreen></iframe>
               </div>
             </div>
 

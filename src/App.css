@@ -79,7 +79,7 @@ h3 {
   opacity:.7;
 }
 .blurb-div {
-  margin:30px;
+  margin:0px;
   padding:20px 50px;
   border:2px #4CAF50 solid;
   border-radius: 5px;
@@ -113,7 +113,7 @@ h3 {
   color:#4CAF50;
 }
 .profile-photo {
-  max-width: 600px;
+  max-width: 90%;
   border-radius: 5px;
   box-shadow: 1px 1px 50px silver
 }
@@ -156,8 +156,9 @@ border-radius: 5px;
   max-width: 600px;
 }
 .database-thumbnail {
-  border-radius: 5px;
-  max-width: 60%;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  max-width: 100%;
 }
 .db-view-text-div {
   padding:4vh;
@@ -165,17 +166,26 @@ border-radius: 5px;
 }
 .db-view-text-main {
   font-family:Comfortaa;
-  font-size: 38px;
-  color:#4CAF50;
+  font-size: 24px;
+  color:white;
+  margin-top:5px;
 }
 .db-view-text {
   font-family:;
-  font-size: 24px;
-  color:gray;
+  font-size: 13px;
+  color:white;
+  margin-bottom:5px;
 }
 .filter-button {
   background-color:lightgray;
   width:95%;
   margin:5px 0;
   border:none;
+}
+.single-db-result-card {
+  background-color:#4CAF50;
+  box-shadow: 2px 2px 6px silver;
+  border-radius: 5px;
+  max-width: 90%;
+  margin:10px;
 }
