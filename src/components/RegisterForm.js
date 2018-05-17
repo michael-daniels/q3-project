@@ -13,10 +13,30 @@ class RegisterForm extends Component {
     password:'',
     confirmPassword:'',
   }
+
   render () {
-    // const registerSubmitHandler = (event) => {
-    //   alert(event.target.userName.value)
-    // }
+
+    const trelloPost = () => {
+      alert('trelloPost Heard')
+      fetch('https://api.trello.com/1/cards?idList=5afcad7f352058eca7c90dab&key=568e3c57754e8cb37ef7b1154db4afb1&token=f783707f8847b830b8b6fa9e44ac8860b15c4dcf4319add55b8962a906ef529c' , {
+          headers:{
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+          method: 'post',
+          body: JSON.stringify({
+            name: `${this.state.userName}`,
+            desc:`Pet Name: ${this.state.petName} \n Lost/Found: ${this.state.lostOrFound} \n Date Lost/Found: ${this.state.dateLostOrFound} \n Pet Gender: ${this.state.petGender} \n Pet Breed: ${this.state.petBreed} \n Crossroads Lost: ${this.state.crossRoadsLost}`
+          })
+        })
+        .then((response) => {
+          return response.json()
+        })
+        .then((data) => {
+          console.log(data)
+        })
+    }
+
     let usernameStatus = 'Username'
     if (window.location.href === 'http://localhost:3000/register?usernametaken=true') {
       usernameStatus = 'Username is already taken. Please try again.'
@@ -25,7 +45,7 @@ class RegisterForm extends Component {
       <div>
         <h3>Register</h3>
         <hr />
-        <form className="form-group form-group-login-register" action="http://localhost:8000/register" method="post">
+        <form className="form-group form-group-login-register" action="http://localhost:8000/register" method="post" onSubmit={trelloPost}>
           <input className="form-control" name="username" type="text" value={this.state.userName} placeholder={usernameStatus} onChange={e => this.setState({ userName: e.target.value })} />
           <input className="form-control" name="petname" type="text" value={this.state.petName} placeholder="Pet's Name" onChange={e => this.setState({ petName: e.target.value })} />
           <input className="form-control" name="lostorfound" type="text" value={this.state.lostOrFound} placeholder="Lost or Found?" onChange={e => this.setState({ lostOrFound: e.target.value })} />

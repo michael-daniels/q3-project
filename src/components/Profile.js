@@ -23,10 +23,10 @@ class Profile extends Component {
     if (this.props.fetched_user[0]) {
       return (
         <div>
+          <div className="pet-name"><h1>{this.props.fetched_user[0].petname}</h1></div>
+          <hr />
           <div className="row">
             <div className="col-md-6">
-
-              <div className="pet-name"><h1>{this.props.fetched_user[0].petname}</h1></div>
               <div className="profile-photo-div">
                 <img className="profile-photo" src={this.props.fetched_user[0].avatarurl} />
               </div>

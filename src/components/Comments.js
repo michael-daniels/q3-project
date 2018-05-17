@@ -22,11 +22,20 @@ class Comments extends Component {
       return <SingleComment key={item.id} singleComment={item} />
     })
 
+    const hasComments = () => {
+      if (this.props.fetched_comments.length > 0) {
+        return singleComment
+      }
+      else {
+        return <div className="no-comments">No comments have been left yet</div>
+      }
+    }
+
     if (this.props.fetched_user[0].id) {
       return (
         <div>
           <h3>Comments</h3>
-          {singleComment}
+          {hasComments()}
           <CommentForm userId={this.props.fetched_user[0].id}/>
         </div>
       );

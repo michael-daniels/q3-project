@@ -10,7 +10,12 @@ class DatabaseResultsList extends Component {
 
   state = {
     all_users_fetched: false,
-    filter_status:'all'
+    filter_status:'all',
+    cityFilter:''
+  }
+
+  updateCityFilter = (event) => {
+    this.setState({cityFilter:`${event.target.value}`})
   }
 
   render() {
@@ -27,23 +32,25 @@ class DatabaseResultsList extends Component {
     if (this.state.filter_status === 'lost') {
       singleDatabaseResult = this.props.allUsersArray.map((item) => {
         console.log("MAP ITEM", item)
-        if (item.lostorfound === 'Lost') {
+        if (item.lostorfound === 'Lost' && item.crossroadslost.includes(this.state.cityFilter)) {
           return <SingleDatabaseResult key={item.id} singleUser={item} />
         }
       })
     }
-    else if (this.state.filter_status == 'found') {
+    else if (this.state.filter_status === 'found') {
       singleDatabaseResult = this.props.allUsersArray.map((item) => {
         console.log("MAP ITEM", item)
-        if (item.lostorfound === 'Found') {
+        if (item.lostorfound === 'Found' && item.crossroadslost.includes(this.state.cityFilter)) {
           return <SingleDatabaseResult key={item.id} singleUser={item} />
         }
       })
     }
-    else if (this.state.filter_status == 'all') {
+    else if (this.state.filter_status === 'all') {
       singleDatabaseResult = this.props.allUsersArray.map((item) => {
         console.log("MAP ITEM", item)
-        return <SingleDatabaseResult key={item.id} singleUser={item} />
+        if (item.crossroadslost.includes(this.state.cityFilter)) {
+          return <SingleDatabaseResult key={item.id} singleUser={item} />
+        }
       })
     }
 
@@ -63,15 +70,16 @@ class DatabaseResultsList extends Component {
     if (this.props.allUsersArray[0]) {
       return (
         <div>
+            <input className="form-control city-filter-input" type="text" value={this.state.cityFilter} onChange={this.updateCityFilter} placeholder="Enter city here to filter results"/>
           <div className="row">
             <div className="col-md-4">
-              <button className="btn btn-primary filter-button" onClick={() => {return showAllPets()}}>Show All Pets</button>
+              <button className="btn btn-primary filter-button" onClick={() => {return showAllPets()}} autoFocus>Show All {this.state.cityFilter} Pets </button>
             </div>
             <div className="col-md-4">
-              <button className="btn btn-primary filter-button" onClick={() => {return showFoundPets()}}>Show Found Pets</button>
+              <button className="btn btn-primary filter-button" onClick={() => {return showFoundPets()}}>Show Found {this.state.cityFilter} Pets </button>
             </div>
             <div className="col-md-4">
-              <button className="btn btn-primary filter-button" onClick={() => {return showLostPets()}}>Show Lost Pets</button>
+              <button className="btn btn-primary filter-button" onClick={() => {return showLostPets()}}>Show Lost {this.state.cityFilter} Pets</button>
             </div>
           </div>
           <hr />
