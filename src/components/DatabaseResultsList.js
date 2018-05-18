@@ -32,7 +32,7 @@ class DatabaseResultsList extends Component {
     if (this.state.filter_status === 'lost') {
       singleDatabaseResult = this.props.allUsersArray.map((item) => {
         console.log("MAP ITEM", item)
-        if (item.lostorfound === 'Lost' && item.crossroadslost.includes(this.state.cityFilter)) {
+        if (item.lostorfound === 'Lost' && item.city.toLowerCase().includes(this.state.cityFilter.toLowerCase())) {
           return <SingleDatabaseResult key={item.id} singleUser={item} />
         }
       })
@@ -40,7 +40,7 @@ class DatabaseResultsList extends Component {
     else if (this.state.filter_status === 'found') {
       singleDatabaseResult = this.props.allUsersArray.map((item) => {
         console.log("MAP ITEM", item)
-        if (item.lostorfound === 'Found' && item.crossroadslost.includes(this.state.cityFilter)) {
+        if (item.lostorfound === 'Found' && item.city.toLowerCase().includes(this.state.cityFilter.toLowerCase())) {
           return <SingleDatabaseResult key={item.id} singleUser={item} />
         }
       })
@@ -48,7 +48,7 @@ class DatabaseResultsList extends Component {
     else if (this.state.filter_status === 'all') {
       singleDatabaseResult = this.props.allUsersArray.map((item) => {
         console.log("MAP ITEM", item)
-        if (item.crossroadslost.includes(this.state.cityFilter)) {
+        if (item.city.toLowerCase().includes(this.state.cityFilter.toLowerCase())) {
           return <SingleDatabaseResult key={item.id} singleUser={item} />
         }
       })

@@ -4,6 +4,15 @@ h3 {
   color:#4CAF50;
   margin:15px 0;
 }
+input[type="date"]:before {
+  content: attr(placeholder) !important;
+  margin-left:3em;
+  margin-right: -10px;
+}
+input[type="date"]:focus:before,
+input[type="date"]:valid:before {
+  content: "";
+}
 .col-md-4 {
   text-align: center;
 }
@@ -123,7 +132,7 @@ h3 {
 }
 .pet-info-div {
   margin: 25px auto;
-  max-width: 600px;
+  max-width: 90%;
 }
 .pet-info {
   font-size: 24px;
@@ -146,6 +155,7 @@ margin:10px auto;
 border-radius: 5px;
 }
 .comment-x-button {
+  display: none;
   color:lightgray;
   cursor:pointer;
   float:right
@@ -199,4 +209,13 @@ border-radius: 5px;
   text-align: center;
   max-width: 98%;
   margin:10px auto;
+}
+.center-select {
+  text-align-last: center;
+}
+.petsNameFieldHidden {
+  display: none;
+}
+.date-input {
+  padding-left:7vw;
 }

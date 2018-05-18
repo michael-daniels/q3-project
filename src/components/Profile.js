@@ -21,6 +21,22 @@ class Profile extends Component {
     console.log("FETCHED USER", this.props.fetched_user[0])
 
     if (this.props.fetched_user[0]) {
+
+      const newDateFormat = () => {
+        let theDate = this.props.fetched_user[0].datelostorfound
+        let theDateArray = theDate.split('-')
+        let theMonth = theDateArray[1]
+        let theDay = theDateArray[2]
+        let theYear = theDateArray[0]
+        let newDate = []
+
+        newDate.push(theMonth)
+        newDate.push(theDay)
+        newDate.push(theYear)
+
+        return newDate.join('-')
+      }
+
       return (
         <div>
           <div className="pet-name"><h1>{this.props.fetched_user[0].petname}</h1></div>
@@ -33,8 +49,11 @@ class Profile extends Component {
               <div className="pet-info-div">
                 <span className="pet-info">{this.props.fetched_user[0].petbreed} - </span>
                 <span className="pet-info">{this.props.fetched_user[0].petgender} - </span>
-                <span className="pet-info">{this.props.fetched_user[0].lostorfound} on {this.props.fetched_user[0].datelostorfound} - </span>
-                <span className="pet-info">{this.props.fetched_user[0].crossroadslost} </span>
+                <span className="pet-info">{this.props.fetched_user[0].lostorfound} on {newDateFormat()} - </span>
+                <span className="pet-info">{this.props.fetched_user[0].crossroadslost} - </span>
+                <span className="pet-info">{this.props.fetched_user[0].city} - </span>
+                <span className="pet-info">{this.props.fetched_user[0].state} - </span>
+                <span className="pet-info">{this.props.fetched_user[0].zip} </span>
               </div>
 
             </div>
@@ -50,7 +69,7 @@ class Profile extends Component {
             <div className="row">
               <div className="col-md-12">
                 <h3>Location</h3>
-                <iframe width="100%" height="400" frameBorder="0" src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyComtCTHcgK-Hn-t4e_idADPWJgWpI4G4E&q=${this.props.fetched_user[0].crossroadslost}`} allowFullScreen></iframe>
+                <iframe width="100%" height="400" frameBorder="0" src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyComtCTHcgK-Hn-t4e_idADPWJgWpI4G4E&q=${this.props.fetched_user[0].crossroadslost}${this.props.fetched_user[0].city}${this.props.fetched_user[0].state}`} allowFullScreen></iframe>
               </div>
             </div>
 
